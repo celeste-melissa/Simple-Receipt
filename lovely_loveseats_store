@@ -49,4 +49,4 @@ print(customer_one_itemization)
 
 # Customer one total cost printed
 print("Customer One Total: " + "\n")
-print("$" + str(round(customer_one_total,2)))
+print("$" + str(round(customer_one_total,2))) # convert to string so that dollar sign symbol can be applied and use round() to narrow  down the total to 2 decimal places
