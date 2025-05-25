@@ -11,7 +11,7 @@ stylish_settee_description = """Stylish Settee. Faux leather on birch. 29.50 inc
 stylish_settee_price = 180.50
 
 # Luxurious Lamp Description
-luxurious_lamp_description = "Luxurious Lamp. Glass and iron. 36 inches tall. Brown with cream shade."
+luxurious_lamp_description = """Luxurious Lamp. Glass and iron. 36 inches tall. Brown with cream shade."""
 
 # Luxurious Lamp Price
 luxurious_lamp_price = 52.15
@@ -19,34 +19,30 @@ luxurious_lamp_price = 52.15
 # Sales tax
 sales_tax = .088
 
-# Customer one total
+# Initialize customer one total to zero
 customer_one_total = 0
 
 # Customer one itemization 
 customer_one_itemization = ""
 
+# List of customer one itemization
+customer_one_items = [lovely_loveseat_description, luxurious_lamp_description]
+customer_one_itemization = "\n\n".join (customer_one_items) + "\n"
+
 # Customer one update total with first item
 customer_one_total += lovely_loveseat_price 
-
-# Customer one itemization updated with first item
-customer_one_itemization += lovely_loveseat_description + "\n\n"
 
 # Customer one update total with second item
 customer_one_total += luxurious_lamp_price
 
-# Customer one update itemization with second item
-customer_one_itemization += luxurious_lamp_description +  "\n\n" 
-
-# Customer one caluclated sales tax from running total
-customer_one_tax = customer_one_total * sales_tax
-
-# Customer one total with sales tax included
-customer_one_total += customer_one_tax
+# Calculate customer one's total with sales tax 
+def calculate_total_with_tax(total, tax):
+  return total + (total * tax)
 
 #Customer one items printed
 print("Customer One Items: " + "\n")
 print(customer_one_itemization)
 
 # Customer one total cost printed
-print("Customer One Total: " + "\n")
-print("$" + str(round(customer_one_total,2))) # convert to string so that dollar sign symbol can be applied and use round() to narrow  down the total to 2 decimal places
+print("Customer One Total:", end=" ")
+print("$" + str(round(calculate_total_with_tax(customer_one_total, sales_tax),2))) # convert to string so that dollar sign symbol can be applied and use round() to narrow  down the total to 2 decimal places
